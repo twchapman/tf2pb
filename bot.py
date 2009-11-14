@@ -219,7 +219,7 @@ def createUser(userName, userCommand):
     classes = extractClasses(userCommand)
     if state != 'normal' or 'medic' in classes:
         user['class'] = classes
-    if re.search('captain', userCommand):
+    if re.search('captain', userCommand) and isAdmin(userName):
         user['status'] = 'captain'
     user['nick'] = userName
     if state == 'captain' or state == 'picking':
